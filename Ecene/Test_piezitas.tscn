@@ -1,0 +1,209 @@
+[gd_scene load_steps=5 format=3 uid="uid://ch4qne5ibkot3"]
+
+[ext_resource type="Script" uid="uid://bn08qabqfe6c0" path="res://Script/Test_piezas.gd" id="1_7yw4c"]
+[ext_resource type="Texture2D" uid="uid://cuc1laiclwsl7" path="res://img/Fond0.jpg" id="2_xanxt"]
+[ext_resource type="Texture2D" uid="uid://dkr5waatmmbdq" path="res://icon.svg" id="3_xanxt"]
+[ext_resource type="FontFile" uid="uid://dxxyq31r4wymy" path="res://Other/FuenteTexto.otf" id="4_xanxt"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_7yw4c")
+background = ExtResource("2_xanxt")
+image = ExtResource("3_xanxt")
+pieces_x = 2
+pieces_y = 2
+image_scale = 3.0
+
+[node name="Info" type="Control" parent="."]
+z_index = 3
+z_as_relative = false
+layout_mode = 3
+anchors_preset = 0
+offset_top = 16.0
+offset_right = 448.0
+offset_bottom = 576.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Info"]
+layout_mode = 0
+offset_left = 24.0
+offset_right = 392.0
+offset_bottom = 234.0
+
+[node name="FPS" type="Label" parent="Info/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("4_xanxt")
+theme_override_font_sizes/font_size = 10
+text = "FPS:"
+
+[node name="FPS_tex" type="Label" parent="Info/VBoxContainer/FPS"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 22.0
+offset_top = 1.0
+offset_right = 102.0
+offset_bottom = 14.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("4_xanxt")
+theme_override_font_sizes/font_size = 10
+text = "0"
+
+[node name="ID_pieza" type="Label" parent="Info/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("4_xanxt")
+theme_override_font_sizes/font_size = 10
+text = "ID_pieza:"
+
+[node name="iD_tex" type="Label" parent="Info/VBoxContainer/ID_pieza"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 40.0
+offset_top = 1.0
+offset_right = 120.0
+offset_bottom = 14.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("4_xanxt")
+theme_override_font_sizes/font_size = 10
+text = "0"
+
+[node name="Matriz" type="Label" parent="Info/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("4_xanxt")
+theme_override_font_sizes/font_size = 10
+text = "Matriz:"
+
+[node name="Matriz_tex" type="Label" parent="Info/VBoxContainer/Matriz"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 33.0
+offset_top = 1.0
+offset_right = 121.0
+offset_bottom = 14.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("4_xanxt")
+theme_override_font_sizes/font_size = 10
+text = "0"
+
+[node name="Global_posicion" type="Label" parent="Info/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("4_xanxt")
+theme_override_font_sizes/font_size = 10
+text = "Global position:"
+
+[node name="Global_tex" type="Label" parent="Info/VBoxContainer/Global_posicion"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 70.0
+offset_top = 2.0
+offset_right = 150.0
+offset_bottom = 15.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("4_xanxt")
+theme_override_font_sizes/font_size = 10
+text = "0"
+
+[node name="Pieza_left" type="Label" parent="Info/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("4_xanxt")
+theme_override_font_sizes/font_size = 10
+text = "ID_Left:"
+
+[node name="Pieza_left_tex" type="Label" parent="Info/VBoxContainer/Pieza_left"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 35.0
+offset_top = 1.0
+offset_right = 142.0
+offset_bottom = 14.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("4_xanxt")
+theme_override_font_sizes/font_size = 10
+text = "0"
+
+[node name="Pieza_right" type="Label" parent="Info/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("4_xanxt")
+theme_override_font_sizes/font_size = 10
+text = "ID_Right:"
+
+[node name="Pieza_right_tex" type="Label" parent="Info/VBoxContainer/Pieza_right"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 41.0
+offset_top = 1.0
+offset_right = 139.0
+offset_bottom = 14.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("4_xanxt")
+theme_override_font_sizes/font_size = 10
+text = "0"
+
+[node name="Pieza_up" type="Label" parent="Info/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("4_xanxt")
+theme_override_font_sizes/font_size = 10
+text = "ID_Up:"
+
+[node name="Pieza_up_tex" type="Label" parent="Info/VBoxContainer/Pieza_up"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 31.0
+offset_top = 1.0
+offset_right = 103.0
+offset_bottom = 14.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("4_xanxt")
+theme_override_font_sizes/font_size = 10
+text = "0"
+
+[node name="Pieza_down" type="Label" parent="Info/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("4_xanxt")
+theme_override_font_sizes/font_size = 10
+text = "ID_Down:"
+
+[node name="Pieza_down_tex" type="Label" parent="Info/VBoxContainer/Pieza_down"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 44.0
+offset_top = 1.0
+offset_right = 150.0
+offset_bottom = 14.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("4_xanxt")
+theme_override_font_sizes/font_size = 10
+text = "0"
+
+[node name="comple" type="Label" parent="Info/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("4_xanxt")
+theme_override_font_sizes/font_size = 10
+text = "Completado:"
+
+[node name="completado_tex" type="Label" parent="Info/VBoxContainer/comple"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 58.0
+offset_top = 2.0
+offset_right = 138.0
+offset_bottom = 15.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_xanxt")
+theme_override_font_sizes/font_size = 10
+text = "0"
