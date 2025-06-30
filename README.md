@@ -2,109 +2,80 @@
 
 ## 📄 Overview
 
-This project implements a **drag-and-drop puzzle system** in Godot 4.x. It divides a single image into multiple pieces that can be freely moved, snapped, and reassembled by the player.  
-It also includes a debug panel displaying information in real time (IDs, matrix positions, neighbors, and global positions).
+This project implements a **drag-and-drop puzzle system** in Godot 4.x. It divides an image into pieces that the player can move, snap, and merge to complete the puzzle.  
+It includes a debug panel showing live info (IDs, positions, neighbors, etc.).
 
 ---
 
 ## 💡 Methodology & Motivation
 
-The main idea is to create a **flexible puzzle system** that:
+The idea is to create a **flexible and dynamic puzzle** system that:
 
-- Uses **any texture** as the source image.
-- Automatically divides it into a configurable number of pieces (rows × columns).
-- Allows each piece to be moved individually or grouped dynamically as they snap together.
-- Supports visual feedback for debugging, including piece IDs and adjacency data.
+- Works with **any image**.
+- Allows you to define the number of columns and rows.
+- Supports merging pieces dynamically through snap logic.
+- Provides real-time visual debugging.
 
-Instead of using pre-defined shapes or mask atlases, this system works purely by splitting the image grid-wise and implementing snapping logic based on logical adjacency.
+The system does not rely on shape masks or predefined puzzle pieces. Instead, it splits the image into rectangles and uses logical adjacency checks to snap them together.
 
 ---
 
 ## ⚙️ How it works
 
-### Image splitting
+### Splitting the image
 
-1. The image is **resized** using a configurable `scale` parameter.
-2. It is divided into a grid of `pieces_x` columns and `pieces_y` rows.
-3. Each grid cell becomes a **TextureRect**, storing its original sub-region.
+1. Resize using a configurable scale.
+2. Divide into `N_en_x` columns and `N_en_y` rows.
+3. Create `TextureRect` nodes for each sub-image region.
 
-### Piece data
+### Piece logic
 
-Each piece is represented by a `Piece` class that stores:
+Each piece contains:
 
 - A **unique ID**.
-- Matrix coordinates (`matrix_pos`).
-- References to neighboring piece IDs (left, right, up, down).
-- Its current TextureRect (node) and group information (used for snapping).
+- Matrix position.
+- Neighbor IDs (left, right, up, down).
+- Group ID for merging.
 
-### Movement & snapping
+### Snapping & merging
 
-- When clicking on a piece, a "reference piece" is set and an offset is calculated to track precise dragging.
-- Pieces can belong to a **group**, which moves all grouped pieces together.
-- On mouse release, pieces check nearby neighbors to see if they are within a snap distance (`SNAP_DISTANCE`). If so, they automatically align and merge into the same group.
-
----
-
-## 🧠 Algorithm & logic
-
-### Piece movement
-
-1. Detect click and calculate offset from mouse position to piece's global position.
-2. While dragging, update all pieces in the same group.
-3. On release, iterate over neighbors and calculate expected positions.
-4. If within a threshold, snap the piece into place and merge groups if necessary.
-
-### Group merging
-
-When pieces snap together, the system:
-
-- Checks both groups' IDs.
-- Merges them into a single group if different.
-- Updates group references for all pieces.
+- While dragging, a piece (or group) follows the cursor.
+- When released, it checks its neighbors.
+- If close enough (`SNAP_DISTANCE`), it snaps and merges groups.
 
 ---
 
-## ✅ Why this approach
+## ✅ Why this method?
 
-- 💪 **Modularity**: Each piece is independent and can be freely manipulated.
-- 🔄 **Dynamic merging**: No need for pre-defined final positions or "locked" states — groups are formed naturally.
-- 🎨 **Visual freedom**: Works with any image without additional masking or shape logic.
-- ⚡ **Performance-friendly**: Only updates necessary nodes during drag, no per-frame heavy recalculations.
+- **Flexible**: Works with any image and any grid size.
+- **Dynamic**: Groups merge dynamically.
+- **No masks needed**: Purely logical.
+- **Lightweight**: Only updates on drag.
 
 ---
 
 ## 💻 Debug panel
 
-The system displays:
-
 - FPS
-- Selected piece ID
+- ID
 - Matrix position
-- Global screen position
-- IDs of neighbors (left, right, up, down)
-- Puzzle completion status
+- Global position
+- Neighbor IDs
+- Completion status
 
 ---
 
-## 🚀 How to use
+## 🚀 Usage
 
-1. Assign an **image** to `image` and a background to `background`.
-2. Configure `pieces_x`, `pieces_y`, and `image_scale`.
-3. Run the scene. Drag pieces, snap them together, and complete the puzzle!
-4. When all pieces are merged into one group, a "Completed" message appears.
-
----
-
-## ⭐ Future improvements (optional ideas)
-
-- Add piece shapes (e.g., puzzle tabs and holes) using shaders or masks.
-- Snap preview lines or highlight when close.
-- Save and load puzzle state.
-- Animations or sounds when snapping pieces.
+1. Set an image and background.
+2. Configure `N_en_x`, `N_en_y`, and `escala_imagen`.
+3. Run and drag pieces to assemble the puzzle.
+4. A "🎉 Completed" message appears when all pieces merge.
 
 ---
 
-## ✨ Final notes
+## 🌐 Other languages
 
-This project is a fun and flexible base for building puzzle games in Godot.  
-If you'd like, I can also help generate diagrams or GIF animations to include visually in your README!
+- 🇪🇸 [Spanish Version](README_ES.md)
+- 🖖 [Klingon Version](README_KLINGON.md)
+
